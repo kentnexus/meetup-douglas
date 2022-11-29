@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to MeetUpDouglas</title>
+<!--    <link rel="icon" type="icon" href="mdicon.png">-->
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--    <link href="generalStyle1.css" rel="stylesheet" />-->
+<!--    <link href="BaseLayout1.css" rel="stylesheet" />-->
+    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <h1>Thank you for Registering!</h1>
+    <div id="msgContainer">
+        <p th:text="${accountMsg}" style="color: cadetblue"></p>
+        <p th:text="${errMsg}" style="color: red"></p>
+    </div>
+    <a  th:href="@{/login}">Please click here to go back to MeetUpDouglas Homepage.</a>
+</body>
+</html>

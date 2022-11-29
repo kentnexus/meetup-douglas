@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/*
+
+   Project: MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   Nov 11, 2022
+*/
+
+.browsecontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1.3fr 1.3fr;
+    gap: 20px 20px;
+    grid-template-areas:
+    "a a a a"
+    "b b b c"
+    "b b b c";
+    padding: 30px;
+}
+
+.browsecontainer h2{
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 10px;
+    vertical-align: center;
+}
+
+.item1 {
+    grid-area: a;
+    display: inline-flex;
+}
+
+.item1 .interests {
+    display: flex;
+    flex:auto;
+    justify-content: center;
+}
+
+.item2 {
+    grid-area: b;
+}
+
+
+.item3 {
+    grid-area: c;
+}
+
+.item2, .item3 {
+    padding-bottom: 10px;
+}
+
+.item1, .item2, .item3 {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 20px;
+    box-shadow: 5px 5px 7px #88888853;
+}
+
+.item1 input{
+    width: 30%;
+    padding-left: 10px;
+    margin: 30px;
+}
+
+
+#buttons {
+    background-color: #C9E265;
+    text-align: center;
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: none;
+    width:180px;
+}
+
+#buttons:hover {
+    background-color: #c9e26554;
+    cursor: grab;
+}
+
+/* Events Gallery */
+#eventcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 20px;
+    grid-template-areas:
+      "1 2 3"
+      "4 5 6";
+    padding: 20px;
+}
+
+#eventcontainer h3 {
+    font-size: 16px;
+    line-height: 0%;
+}
+
+#eventcontainer h4 {
+    font-size: 12px;
+}
+
+div[class^="event-"]{
+    background-color:rgb(247, 252, 247) ;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: black;
+    padding: 10px;
+}
+
+div[class^="event-"]:hover {
+    background-color:#c9e2659e ;
+    cursor: pointer;
+}
+
+#eventcontainer img{
+    min-width:100px;
+    max-width:100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+#eventcontainer a, #eventcontainer a:hover,#eventcontainer a:active {
+    text-decoration: none;
+    color: black;
+}
+
+/* Trending groups */
+
+a[id^="grp-"]:hover, a[id^="grp-"]:hover:active{
+    background-color:#c9e2659e ;
+    cursor: pointer;
+    /*margin: auto;*/
+}
+
+/*  */
+
+/*.item3 tr {*/
+/*    height: auto;*/
+/*}*/
+
+.item3 td {
+    list-style: none;
+    position: relative;
+    padding-bottom: 35px;
+    /*height: auto;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item3 td a {
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 14px 20px;
+    cursor: pointer;
+    background-color: #C9E265;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: 10px;
+    color: black;
+}
+
+footer{
+    margin-top: 50px;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>MeetUp Douglas HomePage</title>
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{/css/gridLayout3.css}" rel="stylesheet" />
+    <link th:href="@{/css/browsing.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jsFunctions.js}"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+            <li><a id="hiw" th:href="@{/howitworks}" >How it works</a></li>
+            <li id="greetings"></li>
+            <li id="profile">
+                <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+                <img th:src="@{/images/profilepic.png}">
+                <i class="arrow down" onclick="myFunction()"></i>
+                <div class="dropdown">
+                    <div id="myDropdown" class="dropdown-content" >
+                        <a th:href="@{/profile}">Profile</a>
+                        <a th:href="@{/group/manage}">Group</a>
+                        <a th:href="@{/event/manage}">Event</a>
+                        <a th:href="@{/logout}">Log out</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="bg-img2">
+    <div class="browsecontainer">
+        <div class="item1">
+            <form th:action="@{/search}" method="get">
+                <div class="interests">
+                    <h2>What interests you?</h2>
+                    <input id="sbar" name="keyword" th:value="${keyword}"  type="text" placeholder="Search for &quot;photography&quot;">
+                    <input id="buttons" type="submit" value="Search" />
+                </div>
+            </form>
+        </div>
+
+        <div class="item2">
+            <h2 class="upev">Events</h2>
+            <div id="eventcontainer">
+                <a th:each="event:${listEvents}" th:href="'/event/'+${event.getName()}+'/'+|@{event(id=${event.getEvent_id()})}|">
+                    <div th:class="'event-'+${event.getEvent_id()}">
+                        <img th:src="@{images/winterreg.jpg}" th:alt="${event.getName()}">
+                        <h3>
+                    <span th:text="${#temporals.dayOfWeekNameShort(event.getSchedule())} +' '+ ${#temporals.format(event.getSchedule(), 'MMM dd, yyyy')+
+                                    ' '+ event.getTime_start()+
+                                    ' - '+ event.getTime_end()}"></span>
+                        </h3>
+                        <h4>
+                            <span th:text="${event.getName().toUpperCase()}"></span>
+                        </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="item3">
+            <h2>Groups</h2>
+            <!-- pool all Groups Page names here -->
+            <table class="trending-groups">
+                <tbody>
+                <tr th:each="group:${listGroups}">
+                    <td><a th:id="'grp-'+${group.getGroup_id()}" th:text="${group.getName()}"
+                           th:href="'/group/'+${group.getName()}+'/'+|@{group(id=${group.getGroup_id()})}|"></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</body>
+</html>

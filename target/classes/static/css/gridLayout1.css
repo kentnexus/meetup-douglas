@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/*
+
+   Project: MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   Nov 11, 2022
+*/
+
+.helpcontainer {
+    display: grid;
+    grid-template-columns: 0.9fr 0.9fr 0.9fr 1.3fr;
+    grid-template-rows: 0.1fr 0.1fr 1.3fr 2.5fr;
+    gap: 20px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "a a a a"
+      "b b b c"
+      "d e f c"
+      "d e f c";
+
+    margin: 20px;
+}
+
+.helpcontainer h2{
+    text-align: left;
+
+}
+
+.item1 {
+    grid-area: a;
+}
+
+.item2 {
+    grid-area: b;
+    display: inline-flex;
+}
+
+
+.item3 {
+    grid-area: c;
+}
+
+.item4 {
+    grid-area: d;
+
+}
+
+
+.item5 {
+    grid-area: e;
+    box-shadow: 5px 5px #88888886;
+}
+
+.item6 {
+    grid-area: f;
+    box-shadow: 5px 5px #88888886;
+}
+
+.item4 img,.item5 img,.item6 img {
+    max-width: 200px;
+    margin-left: 30%;
+    margin-top:20%;
+}
+
+.item4 h2,.item5 h2,.item6 h2 {
+    text-align: center;
+}
+.item4 p,.item5 p,.item6 p {
+    text-align: center;
+}
+
+
+.item3 img {
+    max-width: 400px;
+}
+
+.item2 input{
+    width: 40%;
+    padding-left: 10px;
+}
+
+#access1, #access2{
+    width: 200px;
+    border: none;
+}
+
+.item4, .item5, .item6 {
+    background-color:rgb(247, 252, 247) ;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: black;
+    margin:50px;
+}
+
+.item4:hover, .item5:hover, .item6:hover {
+    background-color:#c9e26544;
+    cursor: grab;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--
+     Event Page of MeetUp Douglas
+     Author: Jonnalyn Sule
+     Date:   November 06, 2022
+     Desktop Styles: 769px and greater
+     Filename: EventPage.html
+     Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+                 Modified and rephrase article content for the purpose of showcasing Project requirements.
+                 No intention to publish this content. For any case, I will need to publish, I will put the proper
+                 content for the business.
+     -->
+
+  <title>MeetUp Douglas EventPage</title>
+  <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+  <!--     <link rel="icon" type="icon" href="mdicon.png">-->
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+  <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+  <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
+  <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+  <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+  <link th:href="@{/css/gridLayout4.css}" rel="stylesheet" />
+  <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
+  <script th:src="@{/js/jsFunctions.js}"></script>
+  <script th:data-isadmin="${isMember}" th:data-grpmember="${isGroupMember}" th:src="@{/js/script.js}" defer onload="loadEvent(this)"></script>
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+    <ul>
+      <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+      <li id="greetings"></li>
+      <li id="profile">
+        <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+        <img th:src="@{/images/profilepic.png}">
+        <i class="arrow down" onclick="myFunction()"></i>
+        <div class="dropdown">
+          <div id="myDropdown" class="dropdown-content" >
+            <a th:href="@{/profile}">Profile</a>
+            <a th:href="@{/group/manage}">Group</a>
+            <a th:href="@{/event/manage}">Event</a>
+            <a th:href="@{/logout}">Log out</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+<div class="evtcontainer">
+  <div class="evttitle">
+    <h2><span th:text="${ev.getName()}"></span></h2>
+    <table>
+      <tr>
+        <td><img th:src="@{/images/icon/icon4.png}"></td>
+        <td>Participants</td>
+        <td><strong><span th:text="${evSize}"></span></strong></td>
+      </tr>
+      <tr>
+        <td><img th:src="@{/images/icon/icon2.png}"></td>
+        <td>Organized by</td>
+        <td><strong><span th:text="${organizer.account.getFirstName()}+' '+${organizer.account.getLastName()}"></span></strong></td>
+      </tr>
+    </table>
+    <form th:action="'/event/'+|@{join(id=${ev.getEvent_id()})}|" method="post">
+      <input id="joinBtn" type="submit" value="Join"/>
+    </form>
+  </div>
+
+  <div class="evtdetails">
+
+    <div class="toglBtn">
+      <input id="details" type="radio" name="toglBtn" checked = "checked" />
+      <label for="details">Details</label>
+      <div class="tab">
+        <p>
+          <span th:text="${ev.getDescription()}"></span>
+        </p>
+      </div>
+      <input type="radio" id="participants" name="toglBtn"/>
+      <label for="participants">Participants</label>
+      <div class="tab">
+        <p th:each="part:${participants}">
+          <span th:text="${part.account.getFirstName()}+' '+${part.account.getLastName()}"></span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="evtprofpic">
+    <img th:src="@{/images/priscillaunsplash.jpg}" alt="Event Profile Pic">
+  </div>
+
+  <div class="evtdet">
+    <h2>Group Organizer</h2>
+    <h3><a th:href="'/group/'+${organizer.group.getName()}+'/'+|@{group(id=${organizer.group.getGroup_id()})}|"
+           th:text="${organizer.group.getName()}">a</a></h3>
+
+    <h2>Event Schedule</h2>
+    <table>
+      <tr>
+        <td id="eimg" rowspan="3"><img th:src="@{/images/icon/icon4.png}"></td>
+        <td><h4>Event Date</h4></td>
+        <td><strong><span th:text="${ev.getSchedule()}"></span></strong></td>
+      </tr>
+      <tr>
+        <td><h4>Time Start</h4></td>
+        <td><strong><span th:text="${ev.getTime_start()}"></span></strong></td>
+      </tr>
+      <tr>
+        <td><h4>Time End</h4></td>
+        <td><strong><span th:text="${ev.getTime_end()}"></span></strong></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+
+      </tr>
+    </table>
+
+  </div>
+
+</div>
+
+</body>
+
+<footer style="position:relative; bottom:0; width:100%;">
+  &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</html>

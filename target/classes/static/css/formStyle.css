@@ -1,0 +1,206 @@
+@charset "utf-8";
+/*
+   
+   Project: MeetUp Douglas 
+   Author: Jonnalyn Sule
+   Date:   Nov 6, 2022
+
+   Adjustment Form Layout
+   Filename: formStyle.css
+   
+*/
+
+/* Form Layout Styles */
+form#signupform, form#grppageform , form#eventpageform{
+  padding: 30px 20px;
+  width: 40%;
+  height: 100%;
+  margin:auto;
+
+}
+
+form#loginform {
+  width:30%;
+  position: absolute;
+  margin: 30px;
+  min-height: 380px;
+  padding: 30px 20px;
+  background-color: rgba(255, 255, 255, 0.815);
+  border-radius: 20px;
+  box-shadow: 5px 5px #88888853;
+}
+
+fieldset {
+  padding: 20px;
+  margin: 10px 0px;
+  border: none;
+}
+
+.formRow {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 10px 0px;
+  background-color: rgba(255, 255, 255, 0.815);
+}
+.mngList, .mngEdit{
+  border: 1px solid rgb(187, 185, 185);
+  padding: 50px;
+  box-shadow: 10px 10px #acaea3;
+}
+
+.mngProf {
+  border: 1px solid rgb(187, 185, 185);
+  padding: 50px;
+  box-shadow: 10px 10px #acaea3;
+  max-width: 65%;
+  min-width: 30% ;
+}
+
+#grpname, #about, #eventname, #eventsch, #eventTS, #eventTE, #detail {
+  background-color: rgb(241, 238, 238);
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 400px;
+  height: auto;
+}
+
+#username, password {
+  background-color: rgb(241, 238, 238);
+  font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Form Button Styles */
+#loginBtn, #buttons {
+  background-color: #C9E265;
+  border-radius: 5px;
+  font-size: 1.5em;
+  outline: none;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 91%;
+  opacity: 0.9;
+}
+
+#loginBtn:hover, #buttons:hover{
+  background-color: #9bac55;
+}
+
+#updateBtn, #editBtn, #delBtn, #cancelBtn, #createBtn, #leaveBtn{
+  background-color: #C9E265;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  margin: 25px 0px;
+  text-decoration: none;
+  color:black;
+}
+
+#leaveBtn{
+  background-color: #FFD700;
+}
+
+#delBtn{
+  background-color: #f9a3a3;
+}
+
+#updateBtn:hover, #editBtn:hover, #delBtn:hover, #cancelBtn:hover, #createBtn:hover, #leaveBtn:hover {
+  background-color: #C3C4C2;
+}
+
+td:first-child {
+  font-weight: bold;
+  padding-right: 25px;
+  min-width: 150px;
+  font-size: 1.1em;
+}
+
+table {
+  width: 100%;
+  margin: 30px 0px;
+}
+
+
+input[type='submit']{
+  font-size: 1em;
+  padding: 5px;
+  margin: 15px;
+}
+
+/* Validation Styles */
+input:focus, select:focus, textarea:focus {
+  background-color: #9a9b94;
+}
+
+input#user:focus:valid,
+input#email:focus:valid,
+input#password:focus:valid,
+input#studentid:focus:valid,
+input#mobilenum:focus:valid {
+  background: rgb(220, 255, 220) url("static/images/valid.png") bottom
+  right/contain no-repeat;
+}
+
+input#user:focus:invalid,
+input#email:focus:invalid,
+input#password:focus:invalid,
+input#studentid:focus:invalid,
+input#mobilenum:focus:invalid {
+  background: rgb(255, 232, 233) url("static/images/invalid.png") bottom
+  right/contain no-repeat;
+}
+
+.tableManager a{
+  text-decoration: none;
+  color:black;
+}
+
+.tableManager a:hover{
+  color: #C9E265;
+}
+
+.tableManager tr{
+  line-height: 40px;
+}
+
+#eventEditForm td:first-child{
+  width: 10vw;
+}
+
+#eventEditForm td:nth-child(2){
+  width: 30vw;
+}
+
+.mngEdit textarea {
+  height: 150px;
+}
+
+#eventEditForm{
+  table-layout: fixed;
+  width: 100%;
+}
+
+#eventEditForm td{
+ text-align: start;
+}
+
+.grpdetails a{
+  text-decoration: none;
+}
+
+.grpdetails a:active{
+  color: black;
+}
+
+.grpdetails a:hover{
+  color: #C9E265;
+}
+
+#editBtn:disabled, #leaveBtn:disabled, #delBtn:disabled{
+  background-color: #9a9b94;
+  color: rgba(54, 54, 59, 0.67)
+}

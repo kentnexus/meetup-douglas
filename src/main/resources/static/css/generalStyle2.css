@@ -1,0 +1,134 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Josefin Sans');
+/*
+
+   Project: MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   Nov 6, 2022
+
+   Desktop Styles: Default layout. Screen from 769px and greater
+   Filename: BaseLayout2.css
+
+*/
+
+body, html {
+    background-color:#FFFFFF;
+    font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h2 {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 35px;
+}
+
+/* Top Menu Navigation */
+/*.navbar{*/
+/*    background-color:white;*/
+/*}*/
+
+.navbar ul {
+    display: flex;
+    width: 100%;
+}
+
+.navbar ul li {
+    /*background-color:#C9E265;*/
+    color: black;
+    font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav ul li a {
+    list-style: none;
+    text-decoration: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.navbar {
+    display: inline-block;
+    width: 100%;
+}
+
+.nav img {
+    display: inline-flex;
+    color: black;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px
+}
+
+
+#hiw {
+    display: inline-flex;
+    color: black;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px
+}
+
+#hiw:hover {
+    color: #C9E265;
+    /*padding: 5px 16px;*/
+}
+
+#access {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#access li {
+    background: #C9E265;
+    display: inline-flex;
+    color: black;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0.3em;
+    width: 100px;
+    height: 30px;
+    margin-left:10px;
+}
+
+#access li a {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#access li:hover {
+    background-color: #ecf5c7f9;
+}
+
+h3 a{
+    text-decoration: none;
+}
+
+h3 a:active {
+    color: black;
+}
+
+h3 a:hover {
+    color: #C9E265;
+}
+
+/*Search Bar*/
+#sbar {
+    background-color: white;
+}
+
+/* Footer Style */
+footer {
+    background-color:#C9E265;
+    font-size: 1.1em;
+    color: black;
+    text-align: center;
+}
+

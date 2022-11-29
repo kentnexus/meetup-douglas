@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>MeetUpDouglas Welcome</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+
+    <style>
+        .pre-scrollable{
+            height:500px;
+            overflow: scroll;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to MeetUpDouglas</h1>
+
+<div class="container mt-2 pre-scrollable">
+    <div class="card-header">Account List</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>User ID: </th>
+                <th>Name:</th>
+                <th>Email:</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+</body>
+</html>

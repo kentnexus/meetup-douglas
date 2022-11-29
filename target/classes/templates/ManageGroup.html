@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+    <title>Manage Group Page</title>
+    <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jsFunctions.js}"></script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+                <li id="greetings"></li>
+                <li id="profile">
+                    <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+                    <img th:src="@{/images/profilepic.png}">
+                    <i class="arrow down" onclick="myFunction()"></i>
+                    <div class="dropdown">
+                        <div id="myDropdown" class="dropdown-content" >
+                            <a th:href="@{/profile}">Profile</a>
+                            <a th:href="@{/group/manage}">Group</a>
+                            <a th:href="@{/event/manage}">Event</a>
+                            <a th:href="@{/logout}">Log out</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+</header>
+
+<!-- display the group listed -->
+<div class="mngList"> 
+<h2>Manage your Groups</h2>
+    <a id="createBtn" th:href="@{/group/create}">Create Group</a>
+    <table class="tableManager">
+    <tr th:each="grp:${listGroups}">
+        <td><a th:text="${grp.group.getName()}" th:href="'/group/'+${grp.group.getName()}+'/'+|@{group(id=${grp.group.getGroup_id()})}|"></a></td>
+<!--        <td><button id="editBtn" th:attr="onclick=|dispEdit('${grp.group.getGroup_id()}','${grp.group.getName()}','${grp.group.getDescription()}');|">Edit</button></td>-->
+<!--        <td><button id="editBtn" th:attr="onclick=${'dispEdit('+grp.group.getGroup_id()+','+grp.group.getName()+','+grp.group.getDescription()+');'}">Edit</button></td>-->
+<!--        <td><button id="editBtn" onclick="dispEdit('1','name','desc')">Edit</button></td>-->
+        <td><a id="editBtn" th:data-id="${grp.group.getGroup_id()}" th:data-name="${grp.group.getName()}"
+               th:data-description="${grp.group.getDescription()}" th:data-owner="${grp.isOwner()}"
+               onclick="groupEdit(this);">Edit</a></td>
+        <td>
+            <a id="leaveBtn" th:data-owner="${grp.isOwner()}" onclick="return isOwnerLeave(this);"
+               th:href="'/group/'+|@{leave(id=${grp.group.getGroup_id()})}|">Leave</a>
+        </td>
+        <td><a id="delBtn" th:data-owner="${grp.isOwner()}" onclick="return isOwnerDelete(this);"
+               th:href="'/group/'+|@{delete(id=${grp.group.getGroup_id()})}|">Delete</a></td>
+    </tr>
+</table>
+</div>
+
+<!-- fetch the data from the group name that needs to modify -->
+<div style="display: none" class="mngEdit" id="editMode" layout:fragment="content" >
+    <h2>Let's start modifying your group</h2>
+    <form id="eventEditForm" th:action="@{/group/save}" th:object="${grp}" method="post">
+        <table>
+            <tr style="display:none">
+                <td><input name="id" type="text" id="gId" /></td>
+            </tr>
+            <tr>
+                <td>Group Name</td>
+                <td id="gName"></td>
+                <td>
+                    <input name="name" id="grpname" type="text" placeholder="Type new group name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>About</td>
+                <td id="gDescription"></td>
+                <td>
+                    <textarea name="description" id="about" type="textarea" rows="8" maxlength="250" placeholder="Type new group details"></textarea>
+                </td>
+            </tr>
+<!--            <tr>-->
+<!--                <td>Members</td>-->
+<!--                <td id="membersList"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>Events</td>-->
+<!--                <td>Fetch Events name from Database</td>-->
+<!--                <td>Fetch Events scheduled date/time from Database</td>-->
+<!--            </tr>-->
+        </table>
+        <div>
+            <button id="updateBtn" type="submit" onsubmit="successGroup()">Submit</button>
+            <button id="cancelBtn" type="reset" onclick="dispHide()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</body>
+</html>

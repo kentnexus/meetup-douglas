@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+body {
+    background-image: url("../images/julianunsplash.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+}

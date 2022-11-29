@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!--   
+   Account Profile of MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   November 23, 2022
+   
+   Desktop Styles: 769px and greater
+   -->
+
+   <title>MeetUp Douglas Account Profile</title>
+     <!-- <link rel="icon" type="icon" th:href="@{images/mdicon.png}"> -->
+     <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+     <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+     <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
+     <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+     <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+     <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+     <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
+     <script th:src="@{/js/jsFunctions.js}" defer>
+         let greetingVal = localStorage.getItem("greets");
+         document.getElementById("greetings").innerHTML = greetingVal;</script>
+ </head>
+
+ <body>
+     <header>
+         <nav class="navbar">
+             <nav class="navbar">
+                 <ul>
+                     <li><a th:href="@{/}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+                     <li id="greetings"></li>
+                     <li id="profile">
+                         <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+                         <img th:src="@{/images/profilepic.png}">
+                         <i class="arrow down" onclick="myFunction()"></i>
+                         <div class="dropdown">
+                             <div id="myDropdown" class="dropdown-content" >
+                                 <a th:href="@{/profile}">Profile</a>
+                                 <a th:href="@{/group/manage}">Group</a>
+                                 <a th:href="@{/event/manage}">Event</a>
+                                 <a th:href="@{/logout}">Log out</a>
+                             </div>
+                         </div>
+                     </li>
+                 </ul>
+             </nav>
+         </nav>
+     </header>
+ 
+     <div class="mngProf"> 
+        <h2>Your Account Profile</h2>
+        <table>
+            <tr>
+                <td>First name</td>
+                <td><span th:text="${account.getFirstName()}"></span></td>
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="userid" type="text" />-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td><span th:text="${account.getLastName()}"></span></td>
+                <!--                <td colspan="2">-->
+                <!--                    <form>-->
+                <!--                        <div class="formRow">-->
+                <!--                            <input name="userid" type="text" />-->
+                <!--                        </div>-->
+                <!--                    </form>-->
+                <!--                </td>-->
+            </tr>
+
+            <tr>
+                <td>Email Address</td>
+                <td><span th:text="${account.getEmail()}"></span></td>
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="email" type="email"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+            </tr>
+<!--            <tr>-->
+<!--                <td>Password</td>-->
+<!--                <td>Fetch Password</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="password" type="password"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>Student ID</td>-->
+<!--                <td>Fetch Student ID</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="studentid" type="text"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
+            
+<!--            <tr>-->
+<!--                <td>Mobile Number</td>-->
+<!--                <td>Fetch Mobile Number</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="mobilenum" type="text"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>Interests</td>-->
+<!--                <td>Fetch Interests</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <textarea name="Interests" type="textarea"> </textarea>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
+           
+        </table>
+
+<!--    <div>-->
+<!--       <input id="updateBtn" type="submit" value="Update Changes on Profile" />-->
+<!--    </div>   -->
+     
+</div>
+</body>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</html>

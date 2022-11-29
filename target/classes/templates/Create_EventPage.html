@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+Create Event Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 16, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: Create_EventPage.html
+Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+          Modified and rephrase article content for the purpose of showcasing Project requirements.
+          No intention to publish this content. For any case, I will need to publish, I will put the proper
+          content for the business.
+
+-->
+
+  <title>Create Event Page</title>
+  <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+   <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+   <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
+  <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+  <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+  <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+  <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
+  <script th:src="@{/js/jsFunctions.js}"></script>
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+      <ul>
+        <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+        <li id="greetings"></li>
+        <li id="profile">
+          <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+          <img th:src="@{/images/profilepic.png}">
+          <i class="arrow down" onclick="myFunction()"></i>
+          <div class="dropdown">
+            <div id="myDropdown" class="dropdown-content" >
+              <a th:href="@{/profile}">Profile</a>
+              <a th:href="@{/group/manage}">Group</a>
+              <a th:href="@{/event/manage}">Event</a>
+              <a th:href="@{/logout}">Log out</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+</header>
+
+<div class="eventpage">
+  <form id="eventpageform" th:action="@{/event/save}" th:object="${event}" method="post">
+    <h2>Let's start creating your event</h2>
+    <fieldset id="eventInfo">
+      <div class="formRow">
+        <label>Name your Event</label>
+        <input name="name" id="name" type="text" required maxlength="250"/>
+      </div>
+      <div class="formRow">
+        <label>Describe your Event</label>
+        <textarea name="description" id="description" type="textarea" rows="8" cols="50" required maxlength="250"></textarea>
+      </div>
+
+      <div class="formRow">
+        <label>Hosted by Group</label>
+        <select name="group" id="tagGroup">
+          <option value="(Please select an option)" disabled selected>(Please select an option)</option>
+          <!-- retrieve your group names here -->
+          <option th:each="grp:${groups}" th:text="${grp.group.getName()}" th:value="${grp.group.getGroup_id()}"></option>
+        </select>
+      </div>
+
+      <div class="formrow">
+        <label>Schedule</label>
+        <input type="date" id="eventsched" name="schedule" required>
+      </div>
+
+      <div class="formrow">
+        <label>From</label>
+        <input type="time" id="eventstart" name="time_start" required>
+      </div>
+
+      <div class="formrow">
+        <label>To</label>
+        <input type="time" id="eventend" name="time_end" required>
+      </div>
+
+      <div class="formRow">
+        <label>Frequency</label>
+        <select name="frequency" id="eventfreq">
+          <option disabled selected>(Please select an option)</option>
+          <option>Once</option>
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Bi-weekly</option>
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Yearly</option>
+        </select>
+      </div>
+
+      <div>
+        <input id="buttons" type="submit" value="Create Event" />
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+<footer>
+  &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</body>
+</html>
+

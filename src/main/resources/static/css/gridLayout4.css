@@ -1,0 +1,218 @@
+@charset "utf-8";
+/*
+   
+   Project: MeetUp Douglas 
+   Author: Jonnalyn Sule
+   Date:   Nov 11, 2022
+*/
+
+
+/* Group Page*/
+
+.grpcontainer {  display: grid;
+  grid-template-columns: 0.5fr 0.8fr;
+  grid-template-rows: 0.9fr 0.7fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "c b"
+    "a a";
+  margin: 10px 50px 50px 50px;
+}
+
+
+.grpdetails { grid-area: a; background-color: #b3b3b0; padding: 40px }
+
+.grpprofpic { grid-area: b; background-color: #f0f7d4; padding: 20px}
+
+.grptitle { grid-area: c; background-color: #f0f7d4; padding: 40px}
+  
+  .grpprofpic img{
+    max-width: 80%;
+  }
+
+
+  table img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  table {
+    font-size: 1.2em;
+  }
+
+
+  /* Button Styles */
+#joinBtn{
+  background-color: #C9E265;
+  box-shadow: 3px 3px #888888;
+  border-radius: 5px;
+  font-size: 1.5em;
+  outline: none;
+  padding: 10px 50px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  margin: 25px 0px;
+}
+
+#joinBtn:hover{
+  background-color: #5e6833;
+  color: white;
+}
+
+#joinBtn:disabled{
+  background-color: #9a9b94;
+  color: rgba(54, 54, 59, 0.67)
+}
+
+
+/*Grp Details*/
+#toglBtn input {
+    background-color: #f0f0ec;
+    box-shadow: 3px 3px #888888;
+    border-radius: 5px;
+    font-size: 0.9em;
+    outline: none;
+    padding: 15px 10px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    margin: 10px 0px;
+  }
+  
+  #toglBtn input:hover{
+    background-color: #b2ba90;
+  }
+
+
+  /* Member details*/ 
+  .memberdet img{
+    width:50px;
+    height: 50px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;  
+  }
+  
+
+  /* Events Page */
+
+  .evtcontainer {  display: grid;
+    display: grid;
+    grid-template-columns: 0.7fr 0.7fr 0.9fr;
+    grid-template-rows: 0.9fr 0.7fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "d c c"
+    "a a b";
+    margin: 10px 50px 50px 50px;
+  }
+  
+  .evtdetails { grid-area: a; background-color: #b3b3b0; padding: 40px }
+ 
+  .evtdet { grid-area: b ; margin:0; padding-left: 40px;}
+  
+  .evtprofpic { grid-area: c; background-color: #f0f7d4; padding: 20px}
+  
+  .evttitle { grid-area: d; background-color: #f0f7d4; padding: 40px}
+  
+  
+  .evtprofpic img{
+    max-width: 80%;
+    padding-left: 50px;
+  }
+
+  .evtdet h2 {
+  font-size: 1.3em;
+}
+
+    .evtdet h3 {
+        font-size: 1.2em;
+        text-indent: 50px;
+        color: #646564;
+    }
+
+      .evtdet h4 {
+        font-size: 0.9em;
+        text-indent: 30px;
+        color: #646564;
+      }
+
+      .eimg {
+        vertical-align: top;
+      }
+
+    .evtdet tr{
+        height:14px;
+        padding: 0;
+      margin:0;
+    }
+
+
+  .grpdetContainer {
+    box-shadow: 3px 3px #C9E265;
+    width: 90%;
+    height: 80%;
+    padding: 40px;
+    background-color: #f0f0ec;
+  }
+
+  /* Tabs */
+
+  .toglBtn{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin:10px auto;
+    padding: 20px;
+  }
+
+  .toglBtn input[type="radio"] {
+    display: none;
+  }
+
+  .toglBtn label {
+    padding:25px;
+    background-color: #f0f0ec;
+    box-shadow: 3px 3px #888888;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-right: 10px;
+    
+  }
+
+  .toglBtn label:hover {
+
+    background-color: #C9E265;
+    cursor: pointer;
+  }
+
+  .toglBtn .tab {
+    padding: 40px;
+    background-color: #f0f0ec;
+    order: 1;
+    display: none;
+
+  }
+
+  .toglBtn input[type='radio']:checked + label + .tab {
+    display: block ;
+    background: #ffffff;
+  }
+
+
+  .toglBtn input[type= "radio"]:checked + label {
+    background: #ffffff;
+  }
+
+  .tab {
+    display:block;
+    width:100%;
+  }
+
+
+

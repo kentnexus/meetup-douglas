@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+How it Works Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 11, 2022
+
+Desktop Styles: 769px and greater
+Filename: HelpPage.html
+-->
+  <meta charset="UTF-8">
+  <title>HelpPage</title>
+  <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+  <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+  <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+  <link th:href="@{/css/gridLayout1.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <ul>
+      <li><a th:href="@{/login}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+      <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
+      <li><a id="access1" th:href="@{/login}">Log in</a></li>
+      <li><a id="access2" th:href="@{/registration}">Sign Up</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+<div class= helpcontainer>
+  <h2 class="item1">Hello there! How can we help?</h2>
+
+
+  <div class="item2">
+    <input type="text" placeholder="Search for &quot;make an account&quot;">
+    <div id="buttons">
+      <input id = "access" type="submit" value="Search" />
+    </div>
+  </div>
+
+  <div class="item3">
+    <img th:src="@{/images/puzzle.jpg}" alt="Puzzle">
+  </div>
+
+  <div class="item4">
+    <img th:src="@{/images/getstartimg.png}" alt="Getting Started">
+    <h2>Getting Started</h2>
+    <p>Create an account, activate it and join groups</p>
+  </div>
+
+  <div class="item5">
+    <img th:src="@{/images/howtouseimg.png}" alt="How to Use">
+    <h2>How to use</h2>
+    <p>Learn how to leverage Meet Up Douglas platform to stay connected.</p>
+  </div>
+
+  <div class="item6">
+    <img th:src="@{/images/guideimg.png}" alt="Guidelines and Policies">
+    <h2>Guidelines and Policies</h2>
+    <p>Find out what are the rules that can help you maintain a pleasant organization.</p>
+  </div>
+</div>
+
+
+</body>
+</html>

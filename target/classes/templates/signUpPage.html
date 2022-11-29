@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+SignUp Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 06, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: SignUpPage.html
+Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+            Modified and rephrase article content for the purpose of showcasing Project requirements.
+            No intention to publish this content. For any case, I will need to publish, I will put the proper
+            content for the business.
+
+-->
+
+    <title>SignUp Page</title>
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+
+    <script>
+        function myFunction() {
+            confirm("Confirmation link has been to your email.");
+            location.href = "LoginPage.html";
+        }
+    </script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/login}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+            <li><a id="hiw" th:href="@{/howitworks}">How it works</a></li>
+            <div id="access">
+                <li><a th:href="@{/login}">Log in</a></li>
+            </div>
+        </ul>
+
+    </nav>
+</header>
+<div class="signupform">
+    <form id="signupform" th:action="@{/process_registration}" method="post">
+        <legend>
+            <h2>Sign Up</h2>
+        </legend>
+        <div id="MsgContainer" name="errorMsgContainer">
+            <p th:text="${errorMsg}" id="errorMsg" name="errorMsg" style="color: red; white-space: pre;" ></p>
+            <p th:text="${confirmMsg}" id="confirmMsg" name="confirmMsg" style="color: dodgerblue; white-space: pre;" ></p>
+            <a th:href="@{/resendEmail}" th:text="${resendMsg}"></a>
+        </div>
+
+
+
+        <fieldset id="custInfo">
+            <div class="formRow">
+                <label for="firstName">First Name</label>
+                <input th:value="${firstName}" name="firstName" id="firstName" type="text" required/>
+            </div>
+            <div class="formRow">
+                <label for="lastName">Last Name</label>
+                <input th:value="${lastName}" name="lastName" id="lastName" type="text" required/>
+            </div>
+            <div class="formRow">
+                <label for="email">Email Address (Please only use Douglas college email.)</label>
+                <input th:value="${email}" name="email" id="email" type="email" required/>
+            </div>
+            <div class="formRow">
+                <label for="password">Password</label>
+                <input th:value="${password}" name="password" id="password" type="password" required />
+            </div>
+
+            <div >
+                <input  id="buttons" type="submit" value="Sign Up" />
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+</body>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</html>

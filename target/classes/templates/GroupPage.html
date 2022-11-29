@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--
+       Group Page of MeetUp Douglas
+       Author: Jonnalyn Sule
+       Date:   November 06, 2022
+
+       Desktop Styles: 769px and greater
+
+       Filename: GroupPage.html
+       Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+                   Modified and rephrase article content for the purpose of showcasing Project requirements.
+                   No intention to publish this content. For any case, I will need to publish, I will put the proper
+                   content for the business.
+       -->
+
+    <title>MeetUp Douglas GroupPage</title>
+    <!-- <link rel="icon" type="icon" th:href="@{images/mdicon.png}"> -->
+    <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
+    <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
+    <link th:href="@{/css/gridLayout4.css}" rel="stylesheet" />
+    <script th:src="@{/js/jsFunctions.js}"></script>
+    <script th:data-isadmin="${isMember}" th:src="@{/js/script.js}" defer onload="loadF(this)"></script>
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+                <li id="greetings"></li>
+                <li id="profile">
+                    <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+                    <img th:src="@{/images/profilepic.png}">
+                    <i class="arrow down" onclick="myFunction()"></i>
+                    <div class="dropdown">
+                        <div id="myDropdown" class="dropdown-content" >
+                            <a th:href="@{/profile}">Profile</a>
+                            <a th:href="@{/group/manage}">Group</a>
+                            <a th:href="@{/event/manage}">Event</a>
+                            <a th:href="@{/logout}">Log out</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+<div class="grpcontainer">
+    <div class="grptitle">
+        <h2><span th:text="${grp.getName()}"></span></h2>
+        <table>
+            <tr>
+                <td><img th:src="@{/images/icon/icon1.png}"></td>
+                <td>Members:</td>
+                <td><strong><span th:text="${groupSize}"></span></strong></td>
+            </tr>
+            <tr>
+                <td><img th:src="@{/images/icon/icon2.png}"></td>
+                <td>Hosted by</td>
+                <td><strong><span th:text="${admin.account.getFirstName()}+' '+${admin.account.getLastName()}"></span></strong></td>
+            </tr>
+        </table>
+        <form th:action="'/group/'+|@{join(id=${grp.getGroup_id()})}|" method="post">
+            <input id="joinBtn" type="submit" value="Join"/>
+        </form>
+    </div>
+    <div class="grpdetails">
+        <div class="toglBtn">
+            <input type="radio" id="about" name="toglBtn" checked = "checked" />
+            <label for="about">About</label>
+            <div class="tab">
+                <p>
+                    <span th:text="${grp.getDescription()}"></span>
+                </p>
+            </div>
+
+            <input type="radio" id="members" name="toglBtn"/>
+            <label for="members">Members</label>
+            <div class="tab">
+                <p th:each="member:${members}">
+                    <span th:text="${member.account.getFirstName()}+' '+${member.account.getLastName()}"></span>
+                </p>
+            </div>
+
+            <!--      <input type="radio" id="comments" name="toglBtn" disabled/>-->
+            <!--      <label for="comments">Comments</label>-->
+            <!--      <div class="tab">-->
+            <!--        <p>Fetch from Database</p>-->
+            <!--      </div>-->
+
+            <input type="radio" id="upevents" name="toglBtn"/>
+            <label for="upevents">Upcoming Events</label>
+            <div class="tab">
+                <p th:each="fevent:${futureEvents}">
+                    <a th:text="${fevent.event.getName()}" th:href="'/event/'+${fevent.event.getName()}+'/'+|@{event(id=${fevent.event.getEvent_id()})}|"></a>
+                </p>
+            </div>
+
+            <input type="radio" id="pevents" name="toglBtn"/>
+            <label for="pevents">Past Events</label>
+            <div class="tab">
+                <p th:each="pevent:${pastEvents}">
+                    <a th:text="${pevent.event.getName()}" th:href="'/event/'+${fevent.event.getName()}+'/'+|@{event(id=${fevent.event.getEvent_id()})}|"></a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="grpprofpic">
+        <img th:src="@{/images/timunsplash.jpg}" alt="Group Profile Pic">
+
+    </div>
+
+    <!--  <div class="memberdet">-->
+    <!--    <h2>Group</h2>-->
+    <!--    <table>-->
+    <!--      <tr>-->
+    <!--        <td><img th:src="@{/images/profilepic.png}" alt="Admin Pic"></td>-->
+    <!--        <td><strong>FetchnameofGrpAdmin</strong></td>-->
+    <!--      </tr>-->
+    <!--    </table>-->
+
+    <!--    <h2>Members (fetchCountOfMembers)</h2>-->
+    <!--    <table>-->
+    <!--      <tr>-->
+    <!--        <td><img th:src="@{/images/profilepic.png}" alt="Member Pic"></td>-->
+    <!--      </tr>-->
+    <!--      <tr>-->
+    <!--        <td><img th:src="@{/images/profilepic.png}" alt="Member Pic"></td>-->
+    <!--      </tr>-->
+    <!--    </table>-->
+
+    <!--&lt;!&ndash;    <p>Categories: Newbie, Freshmen, Friends</p>&ndash;&gt;-->
+    <!--  </div>-->
+
+</div>
+</body>
+
+<footer style="position:relative; bottom:0; width:100%;">
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</html>

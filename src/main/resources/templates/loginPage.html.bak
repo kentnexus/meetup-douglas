@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--
+Home Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 06, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: LoginPage.html
+Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+            Modified and rephrase article content for the purpose of showcasing Project requirements.
+            No intention to publish this content. For any case, I will need to publish, I will put the proper
+            content for the business.
+
+-->
+
+    <title>Home Page</title>
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{/css/loginlayout.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/login}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+                <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
+                <div id="access">
+                <li><a  th:href="@{/registration}">Sign Up</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+<div class="bg-img">
+
+    <form id="loginform" name="f" th:action="@{/login}" method="post">
+        <h2>Instantly meet new friends within the campus</h2>
+        <p>Have no account yet? <a th:href="@{/registration}" >Sign Up</a></p>
+
+        <fieldset id="custInfo">
+
+
+            <div th:if="${param.error}" class="alert alert-error" style="color: red">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success" style="color: red">
+                You have been logged out.
+            </div>
+
+            <div class="formRow">
+                <input name="username" id="username" type="username" required placeholder="Email Address"
+                        value="pastorilt@student.douglascollege.ca"/>
+            </div>
+            <div class="formRow">
+                <input name="password" id="password" type="password" required placeholder="Password"
+                        value="password"/>
+            </div>
+        </fieldset>
+        <div>
+            <input id="buttons" type="submit" value="Log in" />
+        </div>
+    </form>
+</div>
+
+
+</body>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+</html>

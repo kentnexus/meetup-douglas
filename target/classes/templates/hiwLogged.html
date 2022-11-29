@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+How it Works Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 11, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: Hiw.html
+
+
+   -->
+   <title>How It Works Page</title>
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{css/gridLayout2.css}" rel="stylesheet" />
+    <script th:src="@{/js/jsFunctions.js}"></script>
+
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+            <li id="greetings"></li>
+<!--            <li id="profile">-->
+<!--                &lt;!&ndash;                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>&ndash;&gt;-->
+<!--                <img th:src="@{/images/profilepic.png}">-->
+<!--                <i class="arrow down" onclick="myFunction()"></i>-->
+<!--                <div class="dropdown">-->
+<!--                    <div id="myDropdown" class="dropdown-content" >-->
+<!--                        <a th:href="@{/profile}">Profile</a>-->
+<!--                        <a th:href="@{/group/manage}">Group</a>-->
+<!--                        <a th:href="@{/event/manage}">Event</a>-->
+<!--                        <a th:href="@{/logout}">Log out</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </li>-->
+        </ul>
+    </nav>
+</header>
+
+<div class="hiwcontainer">
+    <h2 class="item1">Here is how Meet Up Douglas works</h2>
+
+    <div class="item2">
+        <p >Starting at college can sometimes be dreadful and overwhelming,
+            and joining organizations with your fellow students can help you
+            transition to college life. It is the quickest way to meeting up people that
+            shares the same interests as you. </p>
+
+        <p>Instantly connect on any of the options. Either Join an existing group,
+            look for an upcoming event or you can create a group to start.
+        </p>
+    </div>
+
+    <img class="item3" th:src="@{images/felixunsplash.jpg}" alt="Hike with friends">
+
+
+    <div class="item4">
+        <img th:src="@{images/joingrpimg.png}" alt="Join a Group">
+        <div id="buttons1"><a th:href="@{/}"><strong>Join an Group</strong></a></div>
+    </div>
+
+    <div class="item5">
+        <img th:src="@{images/joinevimg.png}" alt="Join an Event">
+        <div id="buttons2"><a th:href="@{/}"><strong>Join an Event</strong></a></div>
+    </div>
+
+    <div class="item6">
+        <img th:src="@{images/creategrpimg.png}" alt="Create a Group">
+        <div id="buttons3"><a th:href="@{/group/create}"><strong>Create a Group</strong></a></div>
+    </div>
+
+
+</div>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</body>
+</html>

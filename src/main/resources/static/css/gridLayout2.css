@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/*
+
+   Project: MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   Nov 11, 2022
+*/
+
+
+.hiwcontainer {
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr 0.9fr 0.7fr;
+    grid-template-rows: 0.1fr 0.7fr 0.7fr;
+    gap: 20px 10px;
+    grid-template-areas:
+      "a a a c c"
+      "b b b c c"
+      "d e f c c";
+    margin: 20px;
+}
+
+.hiwcontainer h2{
+    text-align: left;
+}
+
+.item1 {
+    grid-area: a;
+}
+
+.item2 {
+    grid-area: b;
+}
+
+
+.item3 {
+    grid-area: c;
+}
+
+.item4 {
+    grid-area: d;
+
+}
+
+.item4 img,.item5 img,.item6 img {
+    width: 180px;
+    margin-left: 30%;
+}
+
+.item2 p {
+    text-align: left;
+    font-size: 20px;
+    padding-right: 300px;
+}
+
+
+.item3 {
+    max-width: 600px;
+    margin-top: 100px;
+}
+
+
+#buttons1,#buttons2,#buttons3 {
+    background-color: rgba(199, 200, 198, 0.674);
+    text-align: center;
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+}
+
+#buttons:hover {
+    background-color: #c9e26554;
+    cursor: pointer;
+}
