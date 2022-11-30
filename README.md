@@ -31,3 +31,11 @@ spring.jpa.hibernate.ddl-auto=update
         return info;
     }
 ```
+
+## To test the features without a Douglas College student email account
+<details><summary>Please use this testing account.</summary>
+
+- username: sulej@student.douglascollege.ca
+- password: $Canada12345 
+
+</details>
