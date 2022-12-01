@@ -33,16 +33,17 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 ## To test the features without a Douglas College student email account
-<details><summary>Please use this testing account.</summary>
+<details><summary>Please use these testing accounts.</summary>
 
 - username: sulej@student.douglascollege.ca
 - password: $Canada12345 
-
+	
+- username: pastorilt@student.douglascollege.ca
+- password: Password12!
+	
 </details>
 
 ## User stories upon signing in
-
-<details>
 
 1. User to search a group/event on the search bar. Results return groups and events based on names.
 2. In every page, clicking the logo on the upper-left redirects to the browsing page if logged in, log in page if not logged in.
@@ -64,23 +65,21 @@ spring.jpa.hibernate.ddl-auto=update
 	- Members
 	- Upcoming Events
 	- Past Events
-8a. The group has its name, number of members, host name displayed.
-8b. About is the group description.
-8c. Members section displays all the group members' names.
-8d. Upcoming events section has all the future events organized by the group. The events are accessible by clicking the name.
-8e. Past events section displays all the past events organized by the group. The events are accessible by clicking the name.
-8f. If the user is not a group member, he is able to join by clicking the 'Join' button.
+- 8a. The group has its name, number of members, host name displayed.
+- 8b. About is the group description.
+- 8c. Members section displays all the group members' names.
+- 8d. Upcoming events section has all the future events organized by the group. The events are accessible by clicking the name.
+- 8e. Past events section displays all the past events organized by the group. The events are accessible by clicking the name.
+- 8f. If the user is not a group member, he is able to join by clicking the 'Join' button.
 9. Clicking Event lets the user manage the events he created/joined in.
-9a. Event organizer is only allowed the edit and delete, but the leave.
-9b. Clicking Edit lets the user edit the event's details except the Group Organizer.
-9c. The event is accessible by clicking the event name.
+- 9a. Event organizer is only allowed the edit and delete, but the leave.
+- 9b. Clicking Edit lets the user edit the event's details except the Group Organizer.
+- 9c. The event is accessible by clicking the event name.
 10. The vent page has 2 features
 	- Details
 	- Participants
-10a. If the user the not an event participant and the event's group member, he must join the group first.
-10b. The event has its name, number of participants, organizer's name, group organizer's name, and event schedule (date, time) displayed.
-10c. Details section has the event's description.
-10d. Participants section has all the event participants' names displayed.
+- 10a. If the user the not an event participant and the event's group member, he must join the group first.
+- 10b. The event has its name, number of participants, organizer's name, group organizer's name, and event schedule (date, time) displayed.
+- 10c. Details section has the event's description.
+- 10d. Participants section has all the event participants' names displayed.
 11. Clicking 'Log Out' logs the user out of the system. The home page is displayed when logging back in.
-
-</details>
